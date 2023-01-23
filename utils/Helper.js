@@ -62,5 +62,25 @@ const Helper = {
         }
     },
     //
+
+   show_data_object_pagination : (dari=0,hingga=0,totaldata=0,totalhalaman=0,data)=>{
+       
+       //dari=0,hingga=0,totaldata=0,totalhalaman=0,data
+
+            
+        return {
+            "kode":001,
+            "message":"sukses",
+            "pageprop":{
+                "dari":dari,
+                "hingga":hingga,
+                "totalData":totaldata,
+                 "totalHalaman":totalhalaman
+            },
+            "listdata":data,
+        }
+           
+        
+    }
 }
 module.exports = Helper

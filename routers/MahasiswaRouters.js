@@ -12,6 +12,7 @@ const auth_mid = require('../routers/middleware/auth_mid')
 // })
 
 routers.post('/signup', MahasiswaController.signUp)
+routers.get('/list', MahasiswaController.getData)
 
 routers.use(auth_mid)
 
