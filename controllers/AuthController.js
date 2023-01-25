@@ -55,7 +55,8 @@ const AuthController = {
                             res.send(response);
                         } else {
                             //get token and set into cookie
-                            const token = Helper.getJWTtoken(results)
+                           // const token = Helper.getJWTtoken(results)
+                           const token = Helper.getJWTtoken(results[0].id,results[0].id_kampus,results[0].name)
                             // res.json(token);
                             // throw new Error();
                             //send token in http cookie with no expire

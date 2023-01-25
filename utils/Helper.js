@@ -14,44 +14,46 @@ const Helper = {
         return moment().add(day, Define.DAYS).valueOf();
     },
 
-    // parseBearer :(bearer) => {
-    //     const [_, token] = bearer.trim().split(" ");
-    //     return token;
-    //   },
+    tglFormatUser :(tgl_) => {
+        var tgl = moment(tgl_).utc().format('DD-MMMM-YYYY');
+        return tgl;
+      },
 
-    random:(max)=>{
-        
-            return Math.floor(Math.random() * max);
-        
-          
+
+
+    random: (max) => {
+
+        return Math.floor(Math.random() * max);
+
+
     },
 
-    HariIni:()=>{
+    HariIni: () => {
         const date = moment().format('LLLL');;
         return moment(date).format('YYYY-MM-DD HH:mm:ss');
     },
 
-    HariIniTgl:()=>{
+    HariIniTgl: () => {
         const date = moment().format('LLLL');;
         return moment(date).format('YYYY-MM-DD');
     },
 
 
     //@return token:String
-    getJWTtoken: (id_auth,id_kampus,name, expires) => {
+    getJWTtoken: (id_auth, id_kampus, name, expires) => {
 
-      // new AuthModel().getUserByEmail("users", email, async (err, results) => {
-            if (expires) {
-                return jwt.sign(
-                                { id_auth: id_auth,id_kampus:id_kampus,name:name },
-                               
-                                process.env.ACCESS_SECRET, 
-                                { expiresIn: expires });
-            } else {
-                return jwt.sign(  { id_auth: id_auth,id_kampus:id_kampus,name:name },       process.env.ACCESS_SECRET);
-            }
-      //  })//end dd
-       
+        // new AuthModel().getUserByEmail("users", email, async (err, results) => {
+        if (expires) {
+            return jwt.sign(
+                { id_auth: id_auth, id_kampus: id_kampus, name: name },
+
+                process.env.ACCESS_SECRET,
+                { expiresIn: expires });
+        } else {
+            return jwt.sign({ id_auth: id_auth, id_kampus: id_kampus, name: name }, process.env.ACCESS_SECRET);
+        }
+        //  })//end dd
+
     },
     //@return email:String || throw Error
     verifyJWTtoken: (token) => {
@@ -60,8 +62,6 @@ const Helper = {
                 throw new Error("Unauthorized Access")
             }
             const data = jwt.verify(token, process.env.ACCESS_SECRET)
-          
-
 
             return data
         } catch (e) {
@@ -70,24 +70,24 @@ const Helper = {
     },
     //
 
-   show_data_object_pagination : (dari=0,hingga=0,totaldata=0,totalhalaman=0,data)=>{
-       
-       //dari=0,hingga=0,totaldata=0,totalhalaman=0,data
+    show_data_object_pagination: (dari = 0, hingga = 0, totaldata = 0, totalhalaman = 0, data) => {
 
-            
+        //dari=0,hingga=0,totaldata=0,totalhalaman=0,data
+
+
         return {
-            "kode":001,
-            "message":"sukses",
-            "pageprop":{
-                "dari":dari,
-                "hingga":hingga,
-                "totalData":totaldata,
-                 "totalHalaman":totalhalaman
+            "kode": 001,
+            "message": "sukses",
+            "pageprop": {
+                "dari": dari,
+                "hingga": hingga,
+                "totalData": totaldata,
+                "totalHalaman": totalhalaman
             },
-            "listdata":data,
+            "listdata": data,
         }
-           
-        
+
+
     }
 }
 module.exports = Helper

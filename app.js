@@ -20,14 +20,15 @@ app.use(fileUpload({
 
 // set body parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // set routing
 app.use('/auth',AuthRouters);
 app.use('/mhs',MahasiswaRouters);
 // app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // buat server nya
 app.listen(PORT, () => console.log(`Server running at port: ${PORT}`));
