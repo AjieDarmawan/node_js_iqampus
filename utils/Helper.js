@@ -14,10 +14,10 @@ const Helper = {
         return moment().add(day, Define.DAYS).valueOf();
     },
 
-    tglFormatUser :(tgl_) => {
+    tglFormatUser: (tgl_) => {
         var tgl = moment(tgl_).utc().format('DD-MMMM-YYYY');
         return tgl;
-      },
+    },
 
 
 
@@ -71,10 +71,6 @@ const Helper = {
     //
 
     show_data_object_pagination: (dari = 0, hingga = 0, totaldata = 0, totalhalaman = 0, data) => {
-
-        //dari=0,hingga=0,totaldata=0,totalhalaman=0,data
-
-
         return {
             "kode": 001,
             "message": "sukses",
@@ -86,8 +82,69 @@ const Helper = {
             },
             "listdata": data,
         }
+    },
 
 
+    show_data_object: (data) => {
+
+        return {
+            "kode": 001,
+            "message": "sukses",
+            "listdata": data,
+        }
+
+
+    },
+
+    res_insert: (status = false) => {
+        switch (status) {
+            case 'sukses':
+                return {
+                    "kode": "001",
+                    "message": "berhasil"
+                };
+            case 'gagal':
+                return {
+                    "kode": "002",
+                    "message": "cannot insert"
+                };
+            case 'invalid':
+                return {
+                    "kode": "003",
+                    "message": "invalid value"
+                };
+            case 'required':
+                return {
+                    "kode": "004",
+                    "message": "field is required"
+                };
+            case 'unique':
+                return {
+                    "kode": "005",
+                    "message": "field is unique"
+                };
+            case 'token_expired':
+                return {
+                    "kode": "006",
+                    "message": "token is expired"
+                };
+            case 'token_invalid':
+                return {
+                    "kode": "007",
+                    "message": "token is invalid"
+                };
+            case 'token_absent':
+                return {
+                    "kode": "008",
+                    "message": "token not found"
+                };
+            default:
+                return {
+                    "kode": "999",
+                    "message": "unknown eror"
+                };
+
+        }
     }
 }
 module.exports = Helper

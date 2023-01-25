@@ -116,12 +116,11 @@ const MahasiswaController = {
                                  nama: results[index].nama,
                                  tempat_lahir: results[index].tempat_lahir,
                                  tgl_lahir: Helper.tglFormatUser(results[index].tgl_lahir) ,
-                                //  id_kampus:results[index].id_kampus,
+                                 id_kampus:results[index].id_kampus,
                                 //  created_at:results[index].created_at,
                                   photo:photo,
 
-                                 // app.use(express.static(path.join(__dirname, 'public')));
-                                  //photo : path.join('', "./uploads/image.png"),
+                              
                              }
                              element.push(cek);
                          
