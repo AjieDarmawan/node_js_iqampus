@@ -9,10 +9,15 @@ class MahasiswaModel extends Model {
 
     db = pool
 
+    // updateData = (table, obj, callback) => {
+    //     let sql = `UPDATE ${table} SET ? WHERE id = ?`;
+    //     this.db.query(sql, [obj, obj.id], callback);
+    // }
 
-    getUserByNama = async (table, nama, callback) => {
-        let sql = `SELECT * from ${table} WHERE nama = ?`;
-        this.db.query(sql, nama, callback);
+
+    getUserId = async (table, id, callback) => {
+        let sql = `SELECT * from ${table} WHERE id = ?`;
+        this.db.query(sql, id, callback);
     }
 
     getPaginateList = (res,page, table,  order_field, callback) => {

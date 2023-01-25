@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const fileUpload = require('express-fileupload');
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -9,6 +11,12 @@ const MahasiswaRouters = require('./routers/MahasiswaRouters');
 
 const app = express();
 const PORT = process.env.PORT || 1000;
+
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}));
+
 
 // set body parser
 app.use(bodyParser.json());

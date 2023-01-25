@@ -40,8 +40,8 @@ class Model {
     * @param {what you want to insert} obj
     * @param {err,results()=>{}} callback
     */
-    updateData = (table, obj, callback) => {
-        let sql = `UPDATE ${table} SET ? WHERE id = ?`;
+    updateData = (table, obj, id, callback) => {
+        let sql = `UPDATE ${table} SET ? WHERE id = ${id}`;
         this.db.query(sql, [obj, obj.id], callback);
     }
     //delete a specific row on a table

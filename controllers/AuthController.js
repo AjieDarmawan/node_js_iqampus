@@ -56,8 +56,8 @@ const AuthController = {
                         } else {
                             //get token and set into cookie
                             const token = Helper.getJWTtoken(results)
-                            res.json(token);
-                            throw new Error();
+                            // res.json(token);
+                            // throw new Error();
                             //send token in http cookie with no expire
                             res.cookie(Define.TOKEN, token, Define.SESSION_COOKIE_OPTION)
                             delete user.pass

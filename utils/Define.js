@@ -6,7 +6,7 @@ const Define = {
         httpOnly: true,
         secure: false,//only for browser
         sameSite: 'lax',
-        //maxAge: 1 * 24 * 60 * 60 * 1000//1 day in milis
+        maxAge: 1 * 24 * 60 * 60 * 1000//1 day in milis
     },
     LOGOUT_COOKIE_OPTION: {
         httpOnly: true,

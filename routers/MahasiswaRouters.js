@@ -11,8 +11,12 @@ const auth_mid = require('../routers/middleware/auth_mid')
 //     res.send('tes');
 // })
 
+routers.post('/upload_berkas', MahasiswaController.upload_berkas)
+routers.post('/getDataDetail', MahasiswaController.getDataDetail)
 routers.post('/signup', MahasiswaController.signUp)
 routers.get('/list', MahasiswaController.getData)
+
+
 
 routers.use(auth_mid)
 

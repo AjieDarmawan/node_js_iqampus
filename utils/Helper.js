@@ -19,6 +19,13 @@ const Helper = {
     //     return token;
     //   },
 
+    random:(max)=>{
+        
+            return Math.floor(Math.random() * max);
+        
+          
+    },
+
     HariIni:()=>{
         const date = moment().format('LLLL');;
         return moment(date).format('YYYY-MM-DD HH:mm:ss');
